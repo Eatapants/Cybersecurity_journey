@@ -1,0 +1,37 @@
+My first steps into the world of ethical hacking through the "Introduction to Offensive Security" room on TryHackMe. 
+This beginner-friendly room simulates a vulnerable bank application ("FakeBank") and introduces key concepts used in offensive security.
+
+Objective
+The goal was to explore and exploit a web application by simulating how attackers might locate hidden functionality, 
+such as admin panels or sensitive endpoints — using simple tools and techniques.
+
+Tools Used
+- Terminal (Command Line Interface) – Used to interact with hacking tools and issue commands.
+- dirb – A brute-force tool used to find hidden directories or pages on a website.
+
+Key Concepts Learned
+- Reconnaissance and Information Gathering
+- Learned how to identify hidden or sensitive URLs in a web application.
+
+- Directory Brute-Forcing
+- Used the dirb tool to automate the process of guessing directory and file names on a target web server.
+
+- Command Line Basics for Hacking
+- Ran tools from a Linux-based terminal, a common environment for cybersecurity workflows.
+
+Practical Example
+# Scan the target for hidden pages
+dirb http://fakebank.thm
+This command runs dirb against the target URL and checks for commonly used paths that may expose sensitive functionality.
+
+This exercise gave me a foundational understanding of how attackers may begin probing web applications for vulnerabilities. Although it’s a small first step, it has sparked my curiosity to go deeper into:
+- Web application exploitation
+- Privilege escalation
+- Red teaming techniques
+
+I plan to continue with more beginner-friendly rooms on TryHackMe such as:
+- OWASP Top 10
+- Basic Pentesting
+- Linux Fundamentals
+
+
