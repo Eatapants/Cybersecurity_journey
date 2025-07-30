@@ -1,0 +1,38 @@
+Topics Covered
+Security Operations Center (SOC)
+Monitors network/systems for policy violations, intrusions, and vulnerabilities.
+
+Responds to malicious events using tools like SIEM.
+Leverages Threat Intelligence to anticipate adversary behavior.
+
+Threat Intelligence
+Collects and analyzes data to understand attackers’ tactics, techniques, and procedures (TTPs).
+Helps predict and defend against specific threat actors (e.g., ransomware groups, nation-state actors).
+
+Digital Forensics and Incident Response (DFIR)
+Digital Forensics
+Analyzes file systems, memory, and logs to uncover traces of an attack.
+
+Incident Response
+Follows a 4-phase approach:
+- Preparation
+- Detection & Analysis
+- Containment, Eradication & Recovery
+- Post-Incident Review
+
+Malware Analysis
+Static Analysis: Study malicious code without executing it.
+Dynamic Analysis: Run malware in a safe environment to observe behavior.
+Explored common malware types: viruses, Trojans, ransomware.
+
+Hands-On Component
+Simulated a real-world SIEM (Security Information and Event Management) system to:
+Investigate login failures and suspicious IPs.
+Identify and respond to alerts.
+Extract flags to validate understanding.
+
+Key Takeaways
+Defensive security is proactive and reactive.
+Continuous monitoring, structured response, and contextual threat understanding are essential.
+Defensive roles (blue team) require both technical and analytical skills.
+
