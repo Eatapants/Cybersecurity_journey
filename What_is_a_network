@@ -1,0 +1,54 @@
+Overview
+Networking is the connection of multiple systems for communication and data transfer. From local Wi-Fi to the global Internet, everything functions as part of a network.
+
+This module covered:
+The concept of networks in both human and technical contexts
+Differences between public and private networks
+Device identification through IP and MAC addresses
+How the Internet operates as a network of networks
+Introductory network diagnostic tools like ping
+Basics of IP spoofing through MAC address changes
+
+Key Concepts
+What Is a Network?
+A network is a group of interconnected devices, from just two to billions. These include phones, laptops, IoT devices, traffic lights, and more. Networks can be private (e.g., LANs) or public (e.g., the Internet).
+
+The Internet
+The Internet is a massive mesh of smaller private networks connected through intermediary nodes like routers. It began with ARPANET in the 1960s and evolved into the modern World Wide Web in 1989.
+
+Identifying Devices on a Network
+IP Addresses
+IP addresses are temporary identifiers for devices to communicate.
+
+Private IP: Local network identification (e.g., 192.168.1.74)
+
+Public IP: External network identification (e.g., 86.157.52.21)
+
+MAC Addresses
+MAC addresses are unique, hardcoded hardware identifiers for network interfaces (e.g., a4:c3:f0:85:ac:2d). They can be spoofed to impersonate another device on the network.
+
+Example: MAC spoofing can be used to bypass network restrictions, such as hotel Wi-Fi blocking based on MAC address.
+
+Tools Used
+Ping (ICMP)
+Used to test connectivity and measure latency.
+Example: ping 8.8.8.8
+Sends ICMP Echo Request and receives Echo Reply packets.
+
+Hands-on Labs Summary
+MAC Spoofing Lab
+Scenario: A hotel Wi-Fi blocks Bob’s MAC address.
+Solution: Bob spoofs Alice’s MAC address to gain access.
+
+Ping Lab
+Task: Ping Google’s DNS server (8.8.8.8)
+Result: Gathered round-trip time, packet loss, and latency metrics.
+
+What I Learned
+Networking is foundational to cybersecurity
+
+Device identities (IP/MAC) are key to communication
+
+Techniques like spoofing and packet inspection lay the groundwork for ethical hacking and defense
+
+Tools like ping are essential for diagnosing connectivity issues
