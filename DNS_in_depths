@@ -1,0 +1,40 @@
+DNS Fundamentals
+Overview
+This document explains the Domain Name System (DNS) — the essential service that translates human-friendly domain names into machine-readable IP addresses.
+
+What is DNS?
+DNS allows users to access websites using domain names (e.g., tryhackme.com) instead of remembering complex IP addresses (e.g., 104.26.10.229). It acts as the phonebook of the internet, resolving domain names to their corresponding IP addresses.
+Domain Name Hierarchy
+Top-Level Domain (TLD)
+The last segment of a domain name (e.g., .com, .org, .uk).
+
+Types:
+gTLD (Generic): .com, .org, .edu
+ccTLD (Country Code): .uk, .ca, .de
+Second-Level Domain
+The name directly to the left of the TLD (e.g., tryhackme in tryhackme.com).
+
+Subdomain
+A prefix to the second-level domain (e.g., admin in admin.tryhackme.com).
+Multiple subdomains can be chained together.
+
+DNS Record Types
+A Record: Maps a domain to an IPv4 address.
+Example: 104.26.10.229
+
+AAAA Record: Maps a domain to an IPv6 address.
+Example: 2606:4700:20::681a:be5
+
+CNAME Record: Maps a domain to another domain name.
+Example: store.tryhackme.com → shops.shopify.com
+MX Record: Specifies mail servers for email delivery, includes priority for failover.
+TXT Record: Stores arbitrary text. Common uses include domain ownership verification and anti-spam configurations (e.g., SPF, DKIM).
+
+DNS Request Flow
+Local Cache Check: Your computer checks its local DNS cache.
+Recursive DNS Server: If not cached locally, the query is forwarded to a recursive server (typically from your ISP or a custom resolver like Google DNS).
+Root Server: Directs the query to the correct TLD server based on the domain.
+TLD Server: Directs the query to the appropriate authoritative nameserver.
+Authoritative Server: Returns the actual DNS record for the domain.
+Caching: The response is cached by the recursive server and your computer, respecting the TTL (Time To Live) value.
+
