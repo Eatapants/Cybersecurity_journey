@@ -1,0 +1,156 @@
+# HTTP in Detail — TryHackMe Notes
+
+This repository contains a breakdown of key concepts, terminology, and hands-on knowledge gained from the "HTTP in Detail" room on TryHackMe. The objective is to develop a strong foundational understanding of how HTTP and HTTPS function at the protocol level and their importance in cybersecurity.
+
+---
+
+## What is HTTP?
+
+**HTTP (HyperText Transfer Protocol)** is a protocol used to request and transmit web content such as HTML, images, and video between clients (usually browsers) and web servers. Developed between 1989–1991 by Tim Berners-Lee and his team, it forms the core of communication on the web.
+
+---
+
+## What is HTTPS?
+
+**HTTPS (HyperText Transfer Protocol Secure)** is the secure version of HTTP, using TLS (previously SSL) encryption. It ensures that:
+
+- Data in transit is encrypted and secure.
+- Clients can verify the authenticity of the server.
+
+---
+
+## What is a URL?
+
+**URL (Uniform Resource Locator)** is the address used to access resources on the internet. A URL can include several components:
+
+http://user:password@host:port/path?query=string#fragment
+
+markdown
+Copy
+Edit
+
+- **Scheme**: Protocol (e.g., http, https, ftp)
+- **User Info**: Username and password (optional)
+- **Host**: Domain name or IP address
+- **Port**: Network port (default 80 for HTTP, 443 for HTTPS)
+- **Path**: Resource location on the server
+- **Query String**: Parameters passed to the server (e.g., ?id=1)
+- **Fragment**: Page subsection reference (e.g., #task3)
+
+---
+
+## Making an HTTP Request
+
+An HTTP request includes the method, path, protocol version, and headers:
+
+### Example Request:
+GET / HTTP/1.1
+Host: tryhackme.com
+User-Agent: Mozilla/5.0 Firefox/87.0
+Referer: https://tryhackme.com/
+
+yaml
+Copy
+Edit
+
+- **GET / HTTP/1.1**: A request for the homepage using HTTP version 1.1
+- **Host**: Target website domain
+- **User-Agent**: Information about the client's browser
+- **Referer**: Page from which the request originated
+
+Requests end with a blank line to signal completion.
+
+---
+
+## Server Response
+
+### Example Response:
+HTTP/1.1 200 OK
+Server: nginx/1.15.8
+Date: Fri, 09 Apr 2021 13:34:03 GMT
+Content-Type: text/html
+Content-Length: 98
+
+<html> <head><title>TryHackMe</title></head> <body>Welcome To TryHackMe.com</body> </html> ```
+Breakdown:
+
+HTTP/1.1 200 OK: Protocol version and success status code
+
+Server: Type and version of the server software
+
+Date: Server's date and time
+
+Content-Type: Format of the returned data
+
+Content-Length: Size of the response body
+
+Blank Line: End of headers
+
+Body: HTML content of the response
+
+HTTP Status Codes
+Code Range	Description
+100–199	Informational responses
+200–299	Successful requests
+300–399	Redirection messages
+400–499	Client errors
+500–599	Server errors
+
+Common Codes
+200 OK: Request successful
+
+201 Created: Resource created
+
+301 Moved Permanently: Resource moved to a new location
+
+302 Found: Temporary redirection
+
+400 Bad Request: Malformed request
+
+401 Unauthorized: Authentication required
+
+403 Forbidden: Access denied
+
+404 Not Found: Resource not available
+
+405 Method Not Allowed: Invalid request method
+
+500 Internal Server Error: Server-side error
+
+503 Service Unavailable: Server temporarily down or overloaded
+
+HTTP Headers
+Headers allow clients and servers to exchange additional metadata about the request or response.
+
+Common Request Headers
+Host: Domain of the target resource
+
+User-Agent: Client software information
+
+Content-Length: Size of data being sent
+
+Accept-Encoding: Supported compression methods
+
+Cookie: Stored data sent with the request
+
+Common Response Headers
+Set-Cookie: Sends cookie data to the client
+
+Cache-Control: Caching behavior
+
+Content-Type: Type of data in the response
+
+Content-Encoding: Compression method used
+
+Cookies
+Cookies are small pieces of data stored by the browser and sent with every request to the same domain. They are used to:
+
+Maintain session state
+
+Store user preferences
+
+Enable authentication
+
+Cookies are often sent in response headers (Set-Cookie) and returned in subsequent request headers (Cookie).
+
+To view cookies in a browser, open Developer Tools > Network tab > Inspect a request > Cookies section.
