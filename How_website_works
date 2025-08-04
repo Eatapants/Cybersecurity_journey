@@ -1,0 +1,73 @@
+Web Development & Basic Security - Learning Notes
+
+1. Introduction
+By the end of this lesson, you will understand how websites are created and be introduced to basic security issues related to web development.
+When visiting a website, your browser (e.g., Chrome, Safari) sends a request to a web server asking for information. The server responds with data that your browser uses to display the page. A web server is simply a dedicated computer that handles requests and responses over the internet.
+
+2. Components of a Website
+Front End (Client-Side): The part of the website you see and interact with in the browser.
+Back End (Server-Side): The server-side logic that processes requests and returns responses.
+The browser requests data, the server responds, and the browser renders the result.
+
+3. Core Web Technologies
+Websites are primarily created using:
+HTML - for structure
+CSS - for styling and layout
+JavaScript - for interactivity and dynamic behavior
+
+4. HTML Basics
+HTML (HyperText Markup Language) is the language of the web. It defines the structure and content of web pages using elements (tags).
+
+Common HTML tags:
+<!DOCTYPE html>: Defines the document type and HTML version (HTML5)
+<html>: Root element
+<head>: Contains metadata, such as the page title
+<body>: Contains the visible page content
+<h1>: Heading
+<p>: Paragraph
+Other tags include:
+<button>: Clickable buttons
+<img>: Images (with src attribute to define image location)
+<a>: Links
+Tags can have attributes:
+class: Used for CSS styling (<p class="bold-text">)
+id: Uniquely identifies an element (<p id="example">)
+src: Specifies a resource (used in <img> or <script>)
+You can view any website’s HTML source by right-clicking and selecting “View Page Source”.
+
+5. JavaScript Basics
+JavaScript (JS) makes pages interactive. It works alongside HTML and CSS to enable features like animations, user input handling, and dynamic updates.
+JS can be included in two ways:
+Directly in the HTML with <script> tags
+As an external file using <script src="file.js"></script>
+
+Example:
+js
+document.getElementById("demo").innerHTML = "Hack the Planet";
+This changes the content of an element with the ID demo.
+
+JavaScript can respond to events like onclick:
+
+html
+<button onclick='document.getElementById("demo").innerHTML = "Button Clicked";'>Click Me!</button>
+
+6. Sensitive Data Exposure
+Sensitive Data Exposure occurs when a website reveals sensitive or clear-text information in its frontend source code.
+Examples include:
+Forgotten login credentials
+Hidden links to internal tools or admin panels
+Unsecured API keys or tokens
+This data can often be found in HTML comments or JavaScript files and can be used to compromise the application.
+Always check the source code when auditing a site to look for exposed data.
+
+7. HTML Injection
+HTML Injection happens when a website fails to sanitize user input and reflects it back into the page. This can allow an attacker to inject custom HTML or JavaScript into the site.
+
+Example scenario:
+A form takes user input and prints it on the screen without validation
+If HTML tags are allowed, the attacker could inject elements (e.g., <h1>Injected</h1>)
+Input sanitization is critical. Developers must ensure that user input is cleaned before being used or displayed. A common principle is:
+Never trust user input. Always validate and sanitize.
+
+8. Conclusion
+Understanding how web technologies work together is essential to learning how security vulnerabilities can occur. Start with the basics—HTML, CSS, JS—and learn how user interaction can open the door to security issues when input isn't handled safely.
