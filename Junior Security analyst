@@ -1,0 +1,69 @@
+Junior Security Analyst Role - Overview & Responsibilities
+Introduction
+The Junior Security Analyst (also known as a Tier 1 SOC Analyst) serves as a Triage Specialist in a Security Operations Center (SOC) environment. This role focuses on monitoring, investigating, and responding to security alerts. Typically, Tier 1 analysts operate within a 24/7 shift-based SOC environment.
+
+Core Responsibilities
+Monitor and triage security alerts
+Investigate events using SIEM and EDR tools
+Configure and manage security monitoring tools
+Develop and maintain basic IDS (Intrusion Detection System) signatures
+Participate in SOC meetings and working groups
+Create and manage incident tickets
+Escalate incidents to Tier 2 analysts or team leads as needed
+
+Required Qualifications
+0–2 years of experience in Security Operations
+
+Basic knowledge of:
+Networking (OSI and TCP/IP models)
+Operating Systems (Windows and Linux)
+Web applications
+Familiarity with scripting or programming (optional but beneficial)
+
+Recommended Certification
+CompTIA Security+
+
+SOC Tier Model Overview
+A Security Operations Center typically follows a three-tiered model:
+Tier 1: Junior Analyst – Alert monitoring and triaging
+Tier 2: Intermediate Analyst – In-depth investigations and incident validation
+Tier 3: Senior Analyst – Threat hunting, root cause analysis, and advanced forensics
+
+The SOC functions 24/7 to detect, prevent, investigate, and respond to cyber threats. Team size and structure vary depending on the organization's needs.
+
+Key Functional Areas
+1. Preparation and Prevention
+Stay up-to-date on current cyber threats (via sources like Twitter or Feedly)
+Maintain and tune detection systems (e.g., firewall signatures, blacklists, patching)
+Research TTPs (Tactics, Techniques, and Procedures) used by threat actors
+
+Example: Learn from public threat intelligence like CISA's APT40 advisory
+Link: https://us-cert.cisa.gov/ncas/alerts/aa21-200a
+
+2. Monitoring and Investigation
+Use SIEM and EDR tools to detect suspicious activities
+Categorize alerts by severity: Low, Medium, High, Critical
+Prioritize high-impact incidents
+Perform triage to understand potential threats
+Investigate alerts using log analysis and open-source intelligence (OSINT)
+Ask investigative questions: How? When? Why?
+
+3. Response
+Isolate compromised hosts
+Kill malicious processes
+Remove malicious files or artifacts
+Contain and remediate affected systems
+Determine scope of impact (e.g., data exfiltration or lateral movement)
+
+A Day in the Life
+Begin the shift by reviewing generated alerts or open tickets
+Monitor logs from multiple sources: IDS/IPS, email systems, firewall logs, etc.
+Analyze forensic data to detect potential intrusions
+Use OSINT tools to support investigations and decision-making
+Contribute to incident response, from detection to remediation
+
+Conclusion
+The Junior Security Analyst plays a critical frontline role in the detection and mitigation of cyber threats. While challenging, the position provides a strong foundation for career growth in cybersecurity. With the right mindset, continual learning, and attention to detail, analysts can progress to Tier 2, Tier 3, or specialized security roles.
+
+This documentation serves as an introductory guide for those preparing to enter or understand the Tier 1 SOC Analyst role.
+
