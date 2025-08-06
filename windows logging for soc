@@ -1,0 +1,102 @@
+Learning Objectives
+Identify and interpret key Windows Event Logs (Security, Sysmon, PowerShell)
+
+Detect unauthorized user authentications and account changes
+
+Correlate logs using Logon IDs and Process IDs
+
+Use Sysmon to monitor process and network activity
+
+Extract PowerShell command history for forensic review
+
+Key Log Types
+1. Security Logs
+Located in Event Viewer > Windows Logs > Security
+
+4624 – Successful logon
+
+4625 – Failed logon
+
+4720 – User account created
+
+4732 – Added to a privileged group
+
+Use logon type to determine access method:
+
+Type 3 – Network
+
+Type 10 – Remote Desktop (RDP)
+
+Triage Tips:
+
+Brute force attacks: many 4625s from a single IP or targeting a single user
+
+Backdoor accounts: suspicious 4720/4732 entries by unknown users
+
+2. Sysmon Logs
+Located in Event Viewer > Applications and Services Logs > Microsoft > Windows > Sysmon > Operational
+
+ID 1 – Process creation
+
+ID 3 – Network connections
+
+ID 11 – File creation
+
+ID 13 – Registry value set
+
+Analysis Strategy:
+
+Start with event ID 1 (Process Creation)
+
+Use ProcessId to track related file and network events
+
+Look for unusual binaries, directories, or unsigned processes
+
+Red flags: uncommon ports, external IPs, and .exe drops in startup folders
+
+3. PowerShell Logging
+Manual review of PS command history:
+
+File path:
+C:\Users\<USER>\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+
+Key Uses:
+
+Logs all PowerShell commands entered in the console
+
+Helps identify malicious use like downloads or privilege enumeration
+
+Not enabled via Event Viewer by default
+
+Attack Scenario Summary (Lab)
+Brute-force detected from: 10.10.53.248
+
+Compromised account: Administrator
+
+Malicious Logon ID: 0x183C36D
+
+Backdoor user created: svc_sysrestore
+
+Groups added: Backup Operators, Remote Desktop Users
+
+Malware downloaded: ckjg.exe from http://gettsveriff.com/bgj3/ckjg.exe
+
+Persistence file: DeleteApp.url in startup folder
+
+C2 connection: 193.46.217.4:7777, domain: hkfasfsafg.click
+
+First PowerShell command: Get-ComputerInfo
+
+First PowerShell usage date: May 18, 2025
+
+PowerShell flag: THM{it_was_me!}
+
+Key Takeaways
+Mastering Event ID 4624 and 4625 is critical for SOC roles
+
+Correlate activity using Logon ID and Process ID
+
+Use Sysmon to enrich default Windows logs with deeper endpoint visibility
+
+Monitor PowerShell history for post-exploitation activity
+
