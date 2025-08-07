@@ -1,0 +1,122 @@
+Memory Forensics: Incident Response Case Study
+Summary:
+This documentation outlines the steps and concepts applied during a memory forensics investigation using Volatility 3 on a compromised Windows system. The investigation involves identifying suspicious activity, analyzing malicious processes, and extracting potential IOCs (Indicators of Compromise) from a memory dump.
+
+Scenario:
+User "Hattori" reported suspicious activity and encrypted PDF files, including a critical document. A memory dump (memdump.mem) was acquired using FTK Imager and transferred to a Linux analysis machine. The analysis was performed using Volatility 3.
+
+Prerequisites:
+Basic understanding of Windows memory forensics
+Familiarity with Volatility 3
+Incident Response workflow and challenges
+
+Tools Used:
+Volatility 3 (alias: vol)
+Linux shell commands (cat, grep, strings)
+FTK Imager (for memory acquisition)
+
+Location of memory dump:
+/home/analyst/memdump.mem
+
+Basic Information Gathering:
+Command:
+vol -f memdump.mem windows.info
+
+Purpose:
+Gathers basic OS and system architecture info such as:
+SystemTime
+Kernel Base
+OS version
+System root path
+Number of processors
+
+Detecting Suspicious Network Activity:
+Command:
+vol -f memdump.mem windows.netstat
+
+Findings:
+Connection on port 3389 from IP 192.168.182.139
+
+Timestamp: 2024-02-24 22:47:52.00
+Possible RDP access indicating remote attacker activity
+
+Process Tree Analysis:
+Command:
+vol -f memdump.mem windows.pstree
+
+Observations:
+Process: critical_updat (suspicious, non-standard)
+Child Process: updater.exe
+Parent: services.exe
+
+File System Analysis:
+Redirect output to a file:
+vol -f memdump.mem windows.filescan > filescan_out
+
+Filter for suspicious binary:
+cat filescan_out | grep updater
+
+Finding:
+Path to updater.exe:
+C:\Users\user01\Documents\updater.exe
+
+MFT Scan for Timestamps:
+Redirect output to a file:
+vol -f memdump.mem windows.mftscan.MFTScan > mftscan_out
+
+Filter for binary:
+cat mftscan_out | grep updater
+
+Purpose:
+Obtain Created, Modified, Updated, and Accessed timestamps of updater.exe
+
+Dumping Process Memory:
+Command:
+vol -f memdump.mem -o . windows.memmap --dump --pid 1612
+
+Result:
+Creates file: pid.1612.dmp in the working directory
+
+Extracting Strings for IOC:
+Command:
+strings pid.1612.dmp | less
+
+Findings:
+URL:
+http://key.critical-update.com/encKEY.txt
+Keyword observed in memory: important_document.pdf
+
+Identifying Key Value:
+Command:
+strings pid.1612.dmp | grep -B 10 -A 10 "http://key.critical-update.com/encKEY.txt"
+
+Findings:
+HTTP request string visible
+Possible encryption key identified in memory:
+cafebabe
+
+Conclusion:
+The analysis revealed:
+Anomalous network connection (RDP)
+Suspicious process activity (critical_updat -> updater.exe)
+Malicious binary located in user documents
+Embedded key (cafebabe) likely used for encrypting files including important_document.pdf
+URL pointing to key delivery via HTTP
+
+Lessons Learned:
+Memory forensics is a powerful method for early-stage compromise detection
+Volatility plugins are essential for live memory parsing and evidence collection
+Strings extraction is a practical method for finding IOCs
+Forensic snapshots can provide insight even after the system is no longer online
+
+Next Steps:
+Cross-check findings with endpoint logs and network telemetry
+Investigate the domain "critical-update.com"
+Report indicators to threat intelligence platforms
+Harden RDP access and enforce multi-factor authentication
+
+Further Reading:
+Windows Forensics 2
+Linux Forensics
+iOS Forensics
+Windows Applications Forensics
