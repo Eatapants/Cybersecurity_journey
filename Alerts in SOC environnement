@@ -1,0 +1,77 @@
+Understanding Alerts in a SOC Environment
+Overview:
+This documentation outlines the core concepts, processes, and hands-on experience gained from completing the SOC Level 1 Alert Handling training room on TryHackMe. The focus is on understanding the lifecycle of an alert in a Security Operations Center (SOC), and how to properly triage, investigate, and resolve it using standard procedures and tools.
+
+Learning Objectives:
+Understand the concept and lifecycle of SOC alerts
+Explore standard alert fields, statuses, and classifications
+Learn how to prioritize and investigate alerts as an L1 analyst
+Gain practical experience through hands-on triage simulations
+Prepare for SOC Simulator and SAL1 certification
+
+Prerequisites:
+Understanding of network, Windows, and Linux attack techniques
+Familiarity with SOC roles and workflows, especially L1 duties
+
+Alert Lifecycle Overview:
+Event Generation
+A system event occurs (e.g., login, file access, network connection)
+The event is logged by the OS, application, or security system
+Log Collection & Processing
+Logs are sent to a central solution such as a SIEM (Security Information and Event Management)
+Detection rules evaluate logs and generate alerts for suspicious activity
+
+Alert Creation
+Alerts highlight anomalies and threats
+Allows SOC analysts to focus on key incidents instead of millions of logs
+
+Alert Management Systems:
+SIEM: Splunk ES, Elastic SIEM
+EDR/NDR: Microsoft Defender, CrowdStrike
+SOAR: Splunk SOAR, Cortex SOAR
+ITSM/Ticketing: Jira, TheHive
+
+Roles in Alert Triage:
+SOC L1: First responder. Reviews and classifies alerts
+SOC L2: Escalation point. Performs deeper analysis and remediation
+SOC Engineer: Ensures data quality and alert visibility
+SOC Manager: Oversees triage performance and coverage
+
+Alert Properties:
+Alert Time – When the alert was generated
+Alert Name – Short description of the suspicious activity
+Alert Severity – Risk level (e.g., Low, Medium, High, Critical)
+Alert Status – Workflow stage (e.g., New, In Progress, Closed)
+Alert Verdict – Final classification (True Positive, False Positive)
+Alert Assignee – Analyst responsible for triaging
+Alert Description – Explanation of alert logic and relevance
+Alert Fields – Supporting data (hostname, user, commandline, etc.)
+
+Alert Prioritization Strategy:
+Filter Alerts – Take only alerts not currently being worked on
+Sort by Severity – Handle Critical first, then High, Medium, Low
+Sort by Time – Older alerts should be reviewed before newer ones
+
+Alert Triage Process:
+Initial Actions:
+Assign alert to yourself
+Set status to "In Progress"
+Read and understand alert metadata and indicators
+
+Investigation Steps:
+Identify affected system/user
+Understand the nature of the event
+Check for supporting evidence (before/after event)
+Use threat intelligence to validate findings
+
+Final Actions:
+Set Verdict (True/False Positive)
+Add detailed comment supporting your conclusion
+Close the alert in the system
+
+Key Takeaways:
+Alerts are a filtered view of raw events, designed to catch malicious activity
+Triage process helps differentiate threats from noise
+L1 analysts are critical in preventing breaches by acting on alerts effectively
+Good alert management depends on teamwork, playbooks, and consistent procedures
+
