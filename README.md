@@ -1,2 +1,3 @@
 # Cybersecurity_journey
-Everything I'm learning in order to get a cybersecurity job.
+Everything I'm learning during my journey to become a cybersecurity analyst/specialist
+
